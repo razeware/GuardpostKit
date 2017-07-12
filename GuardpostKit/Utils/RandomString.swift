@@ -21,16 +21,13 @@
  */
 
 import Foundation
+import Security
 
-extension String {
-  func fromBase64() -> String? {
-    guard let data = Data(base64Encoded: self) else {
-      return nil
-    }
-    return String(data: data, encoding: .utf8)
-  }
+func randomHexString(length: Int) -> String {
+  let byteCount = length * 2
+  var randomBytes = [UInt8](repeating: 0, count: byteCount)
   
-  func toBase64() -> String {
-    return Data(self.utf8).base64EncodedString()
-  }
+  let _ = SecRandomCopyBytes(kSecRandomDefault, byteCount, &randomBytes)
+  
+  return randomBytes.map({String(format: "%02hhx", $0)}).joined(separator: "")
 }

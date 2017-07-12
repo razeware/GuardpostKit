@@ -21,3 +21,64 @@
  */
 
 import Foundation
+
+public struct SingleSignOnResponse {
+  private let request: SingleSignOnRequest
+  private let signature: String
+  private let payload: String
+  private let decodedPayload: [URLQueryItem]?
+  
+  public init?(request: SingleSignOnRequest, responseUrl: URL) {
+    let responseCmpts = URLComponents(url: responseUrl, resolvingAgainstBaseURL: false)
+    guard
+      let sso = responseCmpts?.queryItems?.first(where: { $0.name == "sso" })?.value,
+      let sig = responseCmpts?.queryItems?.first(where: { $0.name == "sig" })?.value,
+      let urlString = sso.fromBase64(),
+      let cmpts = URLComponents(string: urlString)
+    else {
+      return nil
+    }
+    
+    self.request = request
+    self.signature = sig
+    self.payload = sso
+    self.decodedPayload = cmpts.queryItems
+  }
+  
+  public var isValid: Bool {
+    return isSignatureValid && isNonceValid
+  }
+  
+  public var user: SingleSignOnUser? {
+    if !isValid {
+      return .none
+    }
+    guard let decodedPayload = decodedPayload else { return .none }
+    let dictionary = queryItemsToDictionary(decodedPayload)
+    return SingleSignOnUser(dictionary: dictionary)
+  }
+  
+  private var isSignatureValid: Bool {
+    return payload.hmac(algorithm: .sha256, key: request.secret) == signature
+  }
+  
+  private var isNonceValid: Bool {
+    return decodedPayloadEntry(name: "nonce") == request.nonce
+  }
+  
+  private func decodedPayloadEntry(name: String) -> String? {
+    return decodedPayload?.first(where: { $0.name == name })?.value
+  }
+  
+  private func queryItemsToDictionary(_ queryItems: [URLQueryItem]) -> [String : String] {
+    var dictionary = [String : String]()
+    for item in queryItems {
+      dictionary[item.name] = item.value
+    }
+    return dictionary
+  }
+}
+
+
+
+

@@ -21,3 +21,42 @@
  */
 
 import Foundation
+
+public struct SingleSignOnRequest {
+  private let callbackUrl: String
+  internal let secret: String
+  internal let nonce: String
+  private let endpoint: String
+  
+  public init(endpoint: String, secret: String, callbackUrl: String) {
+    self.endpoint = endpoint
+    self.secret = secret
+    self.callbackUrl = callbackUrl
+    self.nonce = randomHexString(length: 40)
+  }
+  
+  public var url: URL? {
+    var cmpts = URLComponents(string: endpoint)
+    cmpts?.queryItems = payload
+    return cmpts?.url
+  }
+  
+  private var payload: [URLQueryItem]? {
+    guard let unsignedPayload = unsignedPayload else { return .none }
+    let contents = unsignedPayload.toBase64()
+    let signature = contents.hmac(algorithm: .sha256, key: secret)
+    return [
+      URLQueryItem(name: "sso", value: contents),
+      URLQueryItem(name: "sig", value: signature)
+    ]
+  }
+  
+  private var unsignedPayload: String? {
+    var cmpts = URLComponents()
+    cmpts.queryItems = [
+      URLQueryItem(name: "callback_url", value: callbackUrl),
+      URLQueryItem(name: "nonce", value: nonce)
+    ]
+    return cmpts.query
+  }
+}

@@ -15,6 +15,8 @@
 		229F07AF1F15B81F00347D9D /* String+HMAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F07AE1F15B81F00347D9D /* String+HMAC.swift */; };
 		229F07B11F15B82800347D9D /* String+Base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F07B01F15B82800347D9D /* String+Base64.swift */; };
 		229F07B31F15B84100347D9D /* Data+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F07B21F15B84100347D9D /* Data+Hex.swift */; };
+		229F07B71F15CE0900347D9D /* RandomString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F07B61F15CE0900347D9D /* RandomString.swift */; };
+		229F07B91F15D34200347D9D /* SingleSignOnUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F07B81F15D34200347D9D /* SingleSignOnUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 		229F07B01F15B82800347D9D /* String+Base64.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Base64.swift"; sourceTree = "<group>"; };
 		229F07B21F15B84100347D9D /* Data+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Hex.swift"; sourceTree = "<group>"; };
 		229F07B51F15BA1B00347D9D /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		229F07B61F15CE0900347D9D /* RandomString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomString.swift; sourceTree = "<group>"; };
+		229F07B81F15D34200347D9D /* SingleSignOnUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSignOnUser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +86,7 @@
 		229F07901F15AE8500347D9D /* GuardpostKit */ = {
 			isa = PBXGroup;
 			children = (
-				229F07B41F15B9BD00347D9D /* CCCommonCrypto */,
+				229F07B41F15B9BD00347D9D /* CommonCrypto */,
 				229F07AD1F15B80100347D9D /* Utils */,
 				229F07AC1F15B7F700347D9D /* SSO */,
 				229F07911F15AE8500347D9D /* GuardpostKit.h */,
@@ -105,6 +109,7 @@
 			children = (
 				229F07A81F15B7CE00347D9D /* SingleSignOnRequest.swift */,
 				229F07AA1F15B7DF00347D9D /* SingleSignOnResponse.swift */,
+				229F07B81F15D34200347D9D /* SingleSignOnUser.swift */,
 			);
 			path = SSO;
 			sourceTree = "<group>";
@@ -115,16 +120,17 @@
 				229F07B21F15B84100347D9D /* Data+Hex.swift */,
 				229F07B01F15B82800347D9D /* String+Base64.swift */,
 				229F07AE1F15B81F00347D9D /* String+HMAC.swift */,
+				229F07B61F15CE0900347D9D /* RandomString.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		229F07B41F15B9BD00347D9D /* CCCommonCrypto */ = {
+		229F07B41F15B9BD00347D9D /* CommonCrypto */ = {
 			isa = PBXGroup;
 			children = (
 				229F07B51F15BA1B00347D9D /* module.modulemap */,
 			);
-			path = CCCommonCrypto;
+			path = CommonCrypto;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,9 +242,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				229F07B91F15D34200347D9D /* SingleSignOnUser.swift in Sources */,
 				229F07AF1F15B81F00347D9D /* String+HMAC.swift in Sources */,
 				229F07B31F15B84100347D9D /* Data+Hex.swift in Sources */,
 				229F07B11F15B82800347D9D /* String+Base64.swift in Sources */,
+				229F07B71F15CE0900347D9D /* RandomString.swift in Sources */,
 				229F07AB1F15B7DF00347D9D /* SingleSignOnResponse.swift in Sources */,
 				229F07A91F15B7CE00347D9D /* SingleSignOnRequest.swift in Sources */,
 			);
@@ -392,7 +400,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.razeware.GuardpostKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "${SRCROOT}/GuardpostKit/CCommonCrypto";
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/GuardpostKit/CommonCrypto";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -415,7 +423,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.razeware.GuardpostKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "${SRCROOT}/GuardpostKit/CCommonCrypto";
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/GuardpostKit/CommonCrypto";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

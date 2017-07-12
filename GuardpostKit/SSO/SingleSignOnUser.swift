@@ -22,15 +22,29 @@
 
 import Foundation
 
-extension String {
-  func fromBase64() -> String? {
-    guard let data = Data(base64Encoded: self) else {
-      return nil
-    }
-    return String(data: data, encoding: .utf8)
-  }
+public struct SingleSignOnUser {
+  public let externalId: String
+  public let email: String
+  public let username: String
+  public let avatarUrl: URL
+  public let name: String
   
-  func toBase64() -> String {
-    return Data(self.utf8).base64EncodedString()
+  init?(dictionary: [String : String]) {
+    guard
+      let externalId = dictionary["external_id"],
+      let email = dictionary["email"],
+      let username = dictionary["username"],
+      let avatarUrlString = dictionary["avatar_url"],
+      let avatarUrl = URL(string: avatarUrlString),
+      let name = dictionary["name"]
+      else {
+        return nil
+    }
+    
+    self.externalId = externalId
+    self.email = email
+    self.username = username
+    self.avatarUrl = avatarUrl
+    self.name = name
   }
 }
