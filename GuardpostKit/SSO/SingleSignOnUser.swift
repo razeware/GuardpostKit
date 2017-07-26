@@ -29,7 +29,7 @@ public struct SingleSignOnUser: Codable {
   public let avatarUrl: URL
   public let name: String
   
-  init?(dictionary: [String : String]) {
+  internal init?(dictionary: [String : String]) {
     guard
       let externalId = dictionary["external_id"],
       let email = dictionary["email"],
@@ -57,6 +57,4 @@ extension SingleSignOnUser: Equatable {
       lhs.avatarUrl == rhs.avatarUrl &&
       lhs.name == rhs.name
   }
-  
-  
 }

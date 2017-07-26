@@ -22,13 +22,13 @@
 
 import Foundation
 
-public struct SingleSignOnResponse {
+internal struct SingleSignOnResponse {
   private let request: SingleSignOnRequest
   private let signature: String
   private let payload: String
   private let decodedPayload: [URLQueryItem]?
   
-  public init?(request: SingleSignOnRequest, responseUrl: URL) {
+  internal init?(request: SingleSignOnRequest, responseUrl: URL) {
     let responseCmpts = URLComponents(url: responseUrl, resolvingAgainstBaseURL: false)
     guard
       let sso = responseCmpts?.queryItems?.first(where: { $0.name == "sso" })?.value,
@@ -45,11 +45,11 @@ public struct SingleSignOnResponse {
     self.decodedPayload = cmpts.queryItems
   }
   
-  public var isValid: Bool {
+  internal var isValid: Bool {
     return isSignatureValid && isNonceValid
   }
   
-  public var user: SingleSignOnUser? {
+  internal var user: SingleSignOnUser? {
     if !isValid {
       return .none
     }

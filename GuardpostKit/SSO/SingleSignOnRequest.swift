@@ -22,20 +22,20 @@
 
 import Foundation
 
-public struct SingleSignOnRequest {
+internal struct SingleSignOnRequest {
   private let callbackUrl: String
   internal let secret: String
   internal let nonce: String
   private let endpoint: String
   
-  public init(endpoint: String, secret: String, callbackUrl: String) {
+  internal init(endpoint: String, secret: String, callbackUrl: String) {
     self.endpoint = endpoint
     self.secret = secret
     self.callbackUrl = callbackUrl
     self.nonce = randomHexString(length: 40)
   }
   
-  public var url: URL? {
+  internal var url: URL? {
     var cmpts = URLComponents(string: endpoint)
     cmpts?.queryItems = payload
     return cmpts?.url
