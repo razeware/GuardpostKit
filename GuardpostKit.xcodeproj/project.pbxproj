@@ -20,6 +20,7 @@
 		22EF2C1E1F28865D0059BE70 /* SingleSignOnRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF2C1D1F28865D0059BE70 /* SingleSignOnRequestTests.swift */; };
 		22EF2C201F28866C0059BE70 /* SingleSignOnResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF2C1F1F28866C0059BE70 /* SingleSignOnResponseTests.swift */; };
 		22EF2C221F28867E0059BE70 /* SingleSignOnUserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF2C211F28867E0059BE70 /* SingleSignOnUserTests.swift */; };
+		22EF2C241F28AB590059BE70 /* Guardpost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF2C231F28AB590059BE70 /* Guardpost.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		22EF2C1D1F28865D0059BE70 /* SingleSignOnRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSignOnRequestTests.swift; sourceTree = "<group>"; };
 		22EF2C1F1F28866C0059BE70 /* SingleSignOnResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSignOnResponseTests.swift; sourceTree = "<group>"; };
 		22EF2C211F28867E0059BE70 /* SingleSignOnUserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSignOnUserTests.swift; sourceTree = "<group>"; };
+		22EF2C231F28AB590059BE70 /* Guardpost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guardpost.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 				229F07AC1F15B7F700347D9D /* SSO */,
 				229F07911F15AE8500347D9D /* GuardpostKit.h */,
 				229F07921F15AE8500347D9D /* Info.plist */,
+				22EF2C231F28AB590059BE70 /* Guardpost.swift */,
 			);
 			path = GuardpostKit;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				229F07B91F15D34200347D9D /* SingleSignOnUser.swift in Sources */,
 				229F07AF1F15B81F00347D9D /* String+HMAC.swift in Sources */,
 				229F07B31F15B84100347D9D /* Data+Hex.swift in Sources */,
+				22EF2C241F28AB590059BE70 /* Guardpost.swift in Sources */,
 				229F07B11F15B82800347D9D /* String+Base64.swift in Sources */,
 				229F07B71F15CE0900347D9D /* RandomString.swift in Sources */,
 				229F07AB1F15B7DF00347D9D /* SingleSignOnResponse.swift in Sources */,
