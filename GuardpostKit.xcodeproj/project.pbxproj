@@ -130,9 +130,9 @@
 				229F07B41F15B9BD00347D9D /* CommonCrypto */,
 				229F07AD1F15B80100347D9D /* Utils */,
 				229F07AC1F15B7F700347D9D /* SSO */,
+				22EF2C231F28AB590059BE70 /* Guardpost.swift */,
 				229F07911F15AE8500347D9D /* GuardpostKit.h */,
 				229F07921F15AE8500347D9D /* Info.plist */,
-				22EF2C231F28AB590059BE70 /* Guardpost.swift */,
 			);
 			path = GuardpostKit;
 			sourceTree = "<group>";
