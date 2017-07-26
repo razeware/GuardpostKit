@@ -21,34 +21,97 @@
  */
 
 import Foundation
+import SafariServices
 
 public enum Result<T> {
   case success(T)
   case failure(Error)
 }
 
+public enum LoginError: Error {
+  case unableToCreateLoginUrl
+  case errorResponseFromGuardpost(Error?)
+  case unableToDecodeGuardpostResponse
+  case invalidSignature
+  case unableToCreateValidUser
+}
+
 public class Guardpost {
-  let baseUrl: String
-  let returnUrl: String
-  let ssoSecret: String
+  private let baseUrl: String
+  private let urlScheme: String
+  private let ssoSecret: String
+  private var _currentUser: SingleSignOnUser?
+  private var authSession: SFAuthenticationSession?
   
-  public init(baseUrl: String, returnUrl: String, ssoSecret: String) {
+  public init(baseUrl: String, urlScheme: String, ssoSecret: String) {
     self.baseUrl = baseUrl
-    self.returnUrl = returnUrl
+    self.urlScheme = urlScheme
     self.ssoSecret = ssoSecret
   }
   
   public var currentUser: SingleSignOnUser? {
-    // TODO
-    return .none
+    if _currentUser == .none {
+      _currentUser = SingleSignOnUser.restoreFromKeychain()
+    }
+    return _currentUser
   }
   
-  public func login(callback: (Result<SingleSignOnUser>) -> ()) {
-    // TODO
+  public func login(callback: @escaping (Result<SingleSignOnUser>) -> ()) {
+    let guardpostLogin = "\(baseUrl)/v2/sso/login"
+    let returnUrl = "\(urlScheme)sessions/create"
+    let ssoRequest = SingleSignOnRequest(endpoint: guardpostLogin, secret: ssoSecret, callbackUrl: returnUrl)
+    
+    guard let loginUrl = ssoRequest.url else {
+      let result = Result<SingleSignOnUser>.failure(LoginError.unableToCreateLoginUrl)
+      return asyncResponse(callback: callback, result: result)
+    }
+    
+    authSession = SFAuthenticationSession(url: loginUrl, callbackURLScheme: urlScheme) { (url, error) in
+      var result: Result<SingleSignOnUser>
+      
+      guard let url = url else {
+        result = .failure(LoginError.errorResponseFromGuardpost(error))
+        return self.asyncResponse(callback: callback, result: result)
+      }
+      
+      guard let response = SingleSignOnResponse(request: ssoRequest, responseUrl: url) else {
+        result = .failure(LoginError.unableToDecodeGuardpostResponse)
+        return self.asyncResponse(callback: callback, result: result)
+      }
+      
+      if !response.isValid {
+        result = .failure(LoginError.invalidSignature)
+        return self.asyncResponse(callback: callback, result: result)
+      }
+      
+      guard let user = response.user else {
+        result = .failure(LoginError.unableToCreateValidUser)
+        return self.asyncResponse(callback: callback, result: result)
+      }
+      
+      user.persistToKeychain()
+      self._currentUser = user
+      
+      result = Result.success(user)
+      return self.asyncResponse(callback: callback, result: result)
+    }
+    
+    authSession?.start()
+  }
+  
+  public func cancelLogin() {
+    authSession?.cancel()
   }
   
   public func logout() {
-    // TODO
+    SingleSignOnUser.removeUserFromKeychain()
+    _currentUser = .none
+  }
+  
+  private func asyncResponse(callback: @escaping (Result<SingleSignOnUser>) -> (), result: Result<SingleSignOnUser>) {
+    DispatchQueue.global(qos: .userInitiated).async {
+      callback(result)
+    }
   }
 }
 
