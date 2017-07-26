@@ -25,26 +25,49 @@ import XCTest
 
 class SingleSignOnUserTests: XCTestCase {
   
-  override func setUp() {
-    super.setUp()
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-  }
+  let userDictionary = [
+    "external_id": "sample_external_id",
+    "email": "email@example.com",
+    "username": "sample_username",
+    "avatar_url": "http://example.com/avatar.jpg",
+    "name": "Sample Name"
+  ]
   
-  override func tearDown() {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    super.tearDown()
-  }
-  
-  func testExample() {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
-  }
-  
-  func testPerformanceExample() {
-    // This is an example of a performance test case.
-    self.measure {
-      // Put the code you want to measure the time of here.
+  func testUserCorrectlyPopulatesWithDictionary() {
+    guard let user = SingleSignOnUser(dictionary: userDictionary) else {
+      XCTFail("User should be correctly populated")
+      return
     }
+    
+    XCTAssertEqual(userDictionary["external_id"], user.externalId)
+    XCTAssertEqual(userDictionary["email"], user.email)
+    XCTAssertEqual(userDictionary["username"], user.username)
+    XCTAssertEqual(userDictionary["avatar_url"], user.avatarUrl.absoluteString)
+    XCTAssertEqual(userDictionary["name"], user.name)
+  }
+  
+  func testUserDictionaryHasRequiredFields() {
+    var invalidDictionary = userDictionary
+    invalidDictionary.removeValue(forKey: "external_id")
+    let user = SingleSignOnUser(dictionary: invalidDictionary)
+    
+    XCTAssertNil(user)
+  }
+  
+  func testAdditionalEntriesInTheDictionaryAreIgnored() {
+    var overSpecifiedDictionary = userDictionary
+    overSpecifiedDictionary["extra_field"] = "some-guff"
+    let user = SingleSignOnUser(dictionary: overSpecifiedDictionary)
+    
+    XCTAssertNotNil(user)
+  }
+  
+  func testAvatarURLMustBeAURL() {
+    var invalidDictionary = userDictionary
+    invalidDictionary["avatar_url"] = "not a url"
+    let user = SingleSignOnUser(dictionary: invalidDictionary)
+    
+    XCTAssertNil(user)
   }
   
 }
