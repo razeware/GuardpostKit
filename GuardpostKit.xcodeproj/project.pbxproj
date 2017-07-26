@@ -21,6 +21,8 @@
 		22EF2C201F28866C0059BE70 /* SingleSignOnResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF2C1F1F28866C0059BE70 /* SingleSignOnResponseTests.swift */; };
 		22EF2C221F28867E0059BE70 /* SingleSignOnUserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF2C211F28867E0059BE70 /* SingleSignOnUserTests.swift */; };
 		22EF2C241F28AB590059BE70 /* Guardpost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF2C231F28AB590059BE70 /* Guardpost.swift */; };
+		22EF2C271F28C5F20059BE70 /* KeychainSwiftDistrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF2C261F28C5F20059BE70 /* KeychainSwiftDistrib.swift */; };
+		22EF2C291F28C6370059BE70 /* SingleSignOnUser+Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF2C281F28C6370059BE70 /* SingleSignOnUser+Keychain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		22EF2C1F1F28866C0059BE70 /* SingleSignOnResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSignOnResponseTests.swift; sourceTree = "<group>"; };
 		22EF2C211F28867E0059BE70 /* SingleSignOnUserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSignOnUserTests.swift; sourceTree = "<group>"; };
 		22EF2C231F28AB590059BE70 /* Guardpost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guardpost.swift; sourceTree = "<group>"; };
+		22EF2C261F28C5F20059BE70 /* KeychainSwiftDistrib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainSwiftDistrib.swift; sourceTree = "<group>"; };
+		22EF2C281F28C6370059BE70 /* SingleSignOnUser+Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SingleSignOnUser+Keychain.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,7 @@
 		229F07901F15AE8500347D9D /* GuardpostKit */ = {
 			isa = PBXGroup;
 			children = (
+				22EF2C251F28C5D00059BE70 /* 3rdParty */,
 				229F07B41F15B9BD00347D9D /* CommonCrypto */,
 				229F07AD1F15B80100347D9D /* Utils */,
 				229F07AC1F15B7F700347D9D /* SSO */,
@@ -120,6 +125,7 @@
 				229F07A81F15B7CE00347D9D /* SingleSignOnRequest.swift */,
 				229F07AA1F15B7DF00347D9D /* SingleSignOnResponse.swift */,
 				229F07B81F15D34200347D9D /* SingleSignOnUser.swift */,
+				22EF2C281F28C6370059BE70 /* SingleSignOnUser+Keychain.swift */,
 			);
 			path = SSO;
 			sourceTree = "<group>";
@@ -151,6 +157,14 @@
 				22EF2C211F28867E0059BE70 /* SingleSignOnUserTests.swift */,
 			);
 			path = SSO;
+			sourceTree = "<group>";
+		};
+		22EF2C251F28C5D00059BE70 /* 3rdParty */ = {
+			isa = PBXGroup;
+			children = (
+				22EF2C261F28C5F20059BE70 /* KeychainSwiftDistrib.swift */,
+			);
+			path = 3rdParty;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,7 +280,9 @@
 				229F07AF1F15B81F00347D9D /* String+HMAC.swift in Sources */,
 				229F07B31F15B84100347D9D /* Data+Hex.swift in Sources */,
 				22EF2C241F28AB590059BE70 /* Guardpost.swift in Sources */,
+				22EF2C291F28C6370059BE70 /* SingleSignOnUser+Keychain.swift in Sources */,
 				229F07B11F15B82800347D9D /* String+Base64.swift in Sources */,
+				22EF2C271F28C5F20059BE70 /* KeychainSwiftDistrib.swift in Sources */,
 				229F07B71F15CE0900347D9D /* RandomString.swift in Sources */,
 				229F07AB1F15B7DF00347D9D /* SingleSignOnResponse.swift in Sources */,
 				229F07A91F15B7CE00347D9D /* SingleSignOnRequest.swift in Sources */,
