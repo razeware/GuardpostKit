@@ -17,6 +17,9 @@
 		229F07B31F15B84100347D9D /* Data+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F07B21F15B84100347D9D /* Data+Hex.swift */; };
 		229F07B71F15CE0900347D9D /* RandomString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F07B61F15CE0900347D9D /* RandomString.swift */; };
 		229F07B91F15D34200347D9D /* SingleSignOnUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F07B81F15D34200347D9D /* SingleSignOnUser.swift */; };
+		22EF2C1E1F28865D0059BE70 /* SingleSignOnRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF2C1D1F28865D0059BE70 /* SingleSignOnRequestTests.swift */; };
+		22EF2C201F28866C0059BE70 /* SingleSignOnResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF2C1F1F28866C0059BE70 /* SingleSignOnResponseTests.swift */; };
+		22EF2C221F28867E0059BE70 /* SingleSignOnUserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF2C211F28867E0059BE70 /* SingleSignOnUserTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,9 @@
 		229F07B51F15BA1B00347D9D /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		229F07B61F15CE0900347D9D /* RandomString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomString.swift; sourceTree = "<group>"; };
 		229F07B81F15D34200347D9D /* SingleSignOnUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSignOnUser.swift; sourceTree = "<group>"; };
+		22EF2C1D1F28865D0059BE70 /* SingleSignOnRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSignOnRequestTests.swift; sourceTree = "<group>"; };
+		22EF2C1F1F28866C0059BE70 /* SingleSignOnResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSignOnResponseTests.swift; sourceTree = "<group>"; };
+		22EF2C211F28867E0059BE70 /* SingleSignOnUserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSignOnUserTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +104,7 @@
 		229F079B1F15AE8500347D9D /* GuardpostKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				22EF2C1C1F2884A60059BE70 /* SSO */,
 				229F079C1F15AE8500347D9D /* GuardpostKitTests.swift */,
 				229F079E1F15AE8500347D9D /* Info.plist */,
 			);
@@ -131,6 +138,16 @@
 				229F07B51F15BA1B00347D9D /* module.modulemap */,
 			);
 			path = CommonCrypto;
+			sourceTree = "<group>";
+		};
+		22EF2C1C1F2884A60059BE70 /* SSO */ = {
+			isa = PBXGroup;
+			children = (
+				22EF2C1D1F28865D0059BE70 /* SingleSignOnRequestTests.swift */,
+				22EF2C1F1F28866C0059BE70 /* SingleSignOnResponseTests.swift */,
+				22EF2C211F28867E0059BE70 /* SingleSignOnUserTests.swift */,
+			);
+			path = SSO;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,7 +273,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22EF2C221F28867E0059BE70 /* SingleSignOnUserTests.swift in Sources */,
 				229F079D1F15AE8500347D9D /* GuardpostKitTests.swift in Sources */,
+				22EF2C1E1F28865D0059BE70 /* SingleSignOnRequestTests.swift in Sources */,
+				22EF2C201F28866C0059BE70 /* SingleSignOnResponseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +496,7 @@
 				229F07A41F15AE8500347D9D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		229F07A51F15AE8500347D9D /* Build configuration list for PBXNativeTarget "GuardpostKitTests" */ = {
 			isa = XCConfigurationList;
@@ -484,6 +505,7 @@
 				229F07A71F15AE8500347D9D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
