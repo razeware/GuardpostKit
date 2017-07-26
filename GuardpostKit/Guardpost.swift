@@ -21,3 +21,34 @@
  */
 
 import Foundation
+
+public enum Result<T> {
+  case success(T)
+  case failure(Error)
+}
+
+public class Guardpost {
+  let baseUrl: String
+  let returnUrl: String
+  let ssoSecret: String
+  
+  public init(baseUrl: String, returnUrl: String, ssoSecret: String) {
+    self.baseUrl = baseUrl
+    self.returnUrl = returnUrl
+    self.ssoSecret = ssoSecret
+  }
+  
+  public var currentUser: SingleSignOnUser? {
+    // TODO
+    return .none
+  }
+  
+  public func login(callback: (Result<SingleSignOnUser>) -> ()) {
+    // TODO
+  }
+  
+  public func logout() {
+    // TODO
+  }
+}
+
