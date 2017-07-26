@@ -25,6 +25,11 @@ import XCTest
 
 class SingleSignOnUserTests: XCTestCase {
   
+  override func tearDown() {
+    // Ensure we don't have any leftover users in the keychain
+    SingleSignOnUser.removeUserFromKeychain()
+  }
+  
   let userDictionary = [
     "external_id": "sample_external_id",
     "email": "email@example.com",
@@ -70,4 +75,32 @@ class SingleSignOnUserTests: XCTestCase {
     XCTAssertNil(user)
   }
   
+  func testPersistenceToKeychain() {
+    guard let user = SingleSignOnUser(dictionary: userDictionary) else {
+      return XCTFail()
+    }
+    
+    XCTAssert(user.persistToKeychain())
+    
+    guard let restoredUser = SingleSignOnUser.restoreFromKeychain() else {
+      return XCTFail("Unable to restore user from Keychain")
+    }
+    
+    XCTAssertEqual(user, restoredUser)
+  }
+  
+  func testRemovalOfUserFromKeychain() {
+    XCTAssertNil(SingleSignOnUser.restoreFromKeychain())
+    
+    guard let user = SingleSignOnUser(dictionary: userDictionary) else {
+      return XCTFail()
+    }
+    
+    XCTAssert(user.persistToKeychain())
+    XCTAssertNotNil(SingleSignOnUser.restoreFromKeychain())
+    
+    XCTAssert(SingleSignOnUser.removeUserFromKeychain())
+    
+    XCTAssertNil(SingleSignOnUser.restoreFromKeychain())
+  }
 }

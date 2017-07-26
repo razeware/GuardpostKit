@@ -38,6 +38,13 @@
 			remoteGlobalIDString = 229F078D1F15AE8500347D9D;
 			remoteInfo = GuardpostKit;
 		};
+		22EF2C401F28E2060059BE70 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 229F07851F15AE8500347D9D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 22EF2C2D1F28E1D30059BE70;
+			remoteInfo = Demo;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -245,6 +252,7 @@
 			);
 			dependencies = (
 				229F079A1F15AE8500347D9D /* PBXTargetDependency */,
+				22EF2C411F28E2060059BE70 /* PBXTargetDependency */,
 			);
 			name = GuardpostKitTests;
 			productName = GuardpostKitTests;
@@ -284,6 +292,7 @@
 					};
 					229F07961F15AE8500347D9D = {
 						CreatedOnToolsVersion = 9.0;
+						TestTargetID = 22EF2C2D1F28E1D30059BE70;
 					};
 					22EF2C2D1F28E1D30059BE70 = {
 						CreatedOnToolsVersion = 9.0;
@@ -382,6 +391,11 @@
 			isa = PBXTargetDependency;
 			target = 229F078D1F15AE8500347D9D /* GuardpostKit */;
 			targetProxy = 229F07991F15AE8500347D9D /* PBXContainerItemProxy */;
+		};
+		22EF2C411F28E2060059BE70 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 22EF2C2D1F28E1D30059BE70 /* Demo */;
+			targetProxy = 22EF2C401F28E2060059BE70 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -574,6 +588,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Demo.app/Demo";
 			};
 			name = Debug;
 		};
@@ -588,6 +603,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Demo.app/Demo";
 			};
 			name = Release;
 		};

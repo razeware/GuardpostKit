@@ -22,4 +22,34 @@
 
 import Foundation
 
+fileprivate let SSO_USER_KEY = "com.razeware.guardpostkit.sso_user"
+
+public extension SingleSignOnUser {
+  @discardableResult
+  internal func persistToKeychain() -> Bool {
+    let encoder = JSONEncoder()
+    guard let encoded = try? encoder.encode(self) else {
+      return false
+    }
+    
+    let keychain = KeychainSwift()
+    return keychain.set(encoded, forKey: SSO_USER_KEY, withAccess: .accessibleAfterFirstUnlock)
+  }
+  
+  internal static func restoreFromKeychain() -> SingleSignOnUser? {
+    let keychain = KeychainSwift()
+    guard let encoded = keychain.getData(SSO_USER_KEY) else {
+      return .none
+    }
+    
+    let decoder = JSONDecoder()
+    return try? decoder.decode(self, from: encoded)
+  }
+  
+  @discardableResult
+  internal static func removeUserFromKeychain() -> Bool {
+    let keychain = KeychainSwift()
+    return keychain.delete(SSO_USER_KEY)
+  }
+}
 
