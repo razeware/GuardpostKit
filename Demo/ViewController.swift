@@ -21,17 +21,49 @@
  */
 
 import UIKit
+import GuardpostKit
+
 
 class ViewController: UIViewController {
+  
+  let guardpost = Guardpost(baseUrl: "https://guardpost.rwdev.io",
+                            urlScheme: "com.razeware.guardpost-demo://",
+                            ssoSecret: "Xf9wbqxxT9DVcmMEGE232NxHX5em6yh9XJu4mvGRBPYuMSKuTArg8kv9")
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+  @IBOutlet weak var errorLabel: UILabel!
+  
+  @IBAction func handleLoginTapped(_ sender: Any) {
+    guardpost.login { (result) in
+      switch result {
+      case .failure(let error):
+        self.displayError(error.localizedDescription)
+      case .success(let user):
+        self.displayError(.none)
+        self.displayUser(user)
+      }
+    }
   }
-
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
+  
+  private func displayError(_ error: String?) {
+    DispatchQueue.main.async { [weak self] in
+      if let error = error {
+        self?.errorLabel.text = error
+        self?.errorLabel.isHidden = false
+      } else {
+        self?.errorLabel.isHidden = true
+      }
+    }
   }
+  
+  private func displayUser(_ user: SingleSignOnUser) {
+    let storyboard = UIStoryboard(name: "Main", bundle: .none)
+    if let userVC = storyboard.instantiateViewController(withIdentifier: "userVC") as? UserTableViewController {
+      userVC.user = user
+      userVC.guardpost = guardpost
+      
+      self.present(userVC, animated: true, completion: .none)
+    }
+  }
+  
 }
 

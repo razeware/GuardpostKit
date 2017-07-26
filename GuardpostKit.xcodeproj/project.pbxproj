@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22739EE31F293DF300DFC285 /* UserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22739EE21F293DF300DFC285 /* UserTableViewController.swift */; };
+		22739EE41F29487500DFC285 /* GuardpostKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229F078E1F15AE8500347D9D /* GuardpostKit.framework */; };
 		229F07981F15AE8500347D9D /* GuardpostKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229F078E1F15AE8500347D9D /* GuardpostKit.framework */; };
 		229F079D1F15AE8500347D9D /* GuardpostKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F079C1F15AE8500347D9D /* GuardpostKitTests.swift */; };
 		229F079F1F15AE8500347D9D /* GuardpostKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 229F07911F15AE8500347D9D /* GuardpostKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -48,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		22739EE21F293DF300DFC285 /* UserTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewController.swift; sourceTree = "<group>"; };
 		229F078E1F15AE8500347D9D /* GuardpostKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GuardpostKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		229F07911F15AE8500347D9D /* GuardpostKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GuardpostKit.h; sourceTree = "<group>"; };
 		229F07921F15AE8500347D9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -97,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22739EE41F29487500DFC285 /* GuardpostKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +208,7 @@
 				22EF2C371F28E1D30059BE70 /* Assets.xcassets */,
 				22EF2C391F28E1D30059BE70 /* LaunchScreen.storyboard */,
 				22EF2C3C1F28E1D30059BE70 /* Info.plist */,
+				22739EE21F293DF300DFC285 /* UserTableViewController.swift */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -380,6 +385,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22EF2C331F28E1D30059BE70 /* ViewController.swift in Sources */,
+				22739EE31F293DF300DFC285 /* UserTableViewController.swift in Sources */,
 				22EF2C311F28E1D30059BE70 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -616,6 +622,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.razeware.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -630,6 +637,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.razeware.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
