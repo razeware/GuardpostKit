@@ -28,6 +28,7 @@ public struct SingleSignOnUser: Codable {
   public let username: String
   public let avatarUrl: URL
   public let name: String
+  public let token: String
   
   internal init?(dictionary: [String : String]) {
     guard
@@ -36,7 +37,8 @@ public struct SingleSignOnUser: Codable {
       let username = dictionary["username"],
       let avatarUrlString = dictionary["avatar_url"],
       let avatarUrl = URL(string: avatarUrlString),
-      let name = dictionary["name"]?.replacingOccurrences(of: "+", with: " ")
+      let name = dictionary["name"]?.replacingOccurrences(of: "+", with: " "),
+      let token = dictionary["token"]
       else {
         return nil
     }
@@ -46,6 +48,7 @@ public struct SingleSignOnUser: Codable {
     self.username = username
     self.avatarUrl = avatarUrl
     self.name = name
+    self.token = token
   }
 }
 
@@ -55,6 +58,7 @@ extension SingleSignOnUser: Equatable {
       lhs.email == rhs.email &&
       lhs.username == rhs.username &&
       lhs.avatarUrl == rhs.avatarUrl &&
-      lhs.name == rhs.name
+      lhs.name == rhs.name &&
+      lhs.token == rhs.token
   }
 }

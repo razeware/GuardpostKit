@@ -67,5 +67,6 @@ class UserTableViewController: UITableViewController {
     nameLabel?.text = user.name
     emailLabel?.text = user.email
     externalIdLabel?.text = user.externalId
+    tokenLabel?.text = user.token
   }
 }

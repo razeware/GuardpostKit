@@ -35,7 +35,8 @@ class SingleSignOnUserTests: XCTestCase {
     "email": "email@example.com",
     "username": "sample_username",
     "avatar_url": "http://example.com/avatar.jpg",
-    "name": "Sample Name"
+    "name": "Sample Name",
+    "token": "Samaple.Token"
   ]
   
   func testUserCorrectlyPopulatesWithDictionary() {
@@ -49,6 +50,7 @@ class SingleSignOnUserTests: XCTestCase {
     XCTAssertEqual(userDictionary["username"], user.username)
     XCTAssertEqual(userDictionary["avatar_url"], user.avatarUrl.absoluteString)
     XCTAssertEqual(userDictionary["name"], user.name)
+    XCTAssertEqual(userDictionary["token"], user.token)
   }
   
   func testUserDictionaryHasRequiredFields() {
