@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		22739EE31F293DF300DFC285 /* UserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22739EE21F293DF300DFC285 /* UserTableViewController.swift */; };
 		22739EE41F29487500DFC285 /* GuardpostKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229F078E1F15AE8500347D9D /* GuardpostKit.framework */; };
+		22739EE71F29C97E00DFC285 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 22739EE51F29C97E00DFC285 /* LICENSE */; };
+		22739EE81F29C97E00DFC285 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 22739EE61F29C97E00DFC285 /* README.md */; };
 		229F07981F15AE8500347D9D /* GuardpostKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229F078E1F15AE8500347D9D /* GuardpostKit.framework */; };
 		229F079D1F15AE8500347D9D /* GuardpostKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F079C1F15AE8500347D9D /* GuardpostKitTests.swift */; };
 		229F079F1F15AE8500347D9D /* GuardpostKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 229F07911F15AE8500347D9D /* GuardpostKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -51,6 +53,8 @@
 
 /* Begin PBXFileReference section */
 		22739EE21F293DF300DFC285 /* UserTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewController.swift; sourceTree = "<group>"; };
+		22739EE51F29C97E00DFC285 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		22739EE61F29C97E00DFC285 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		229F078E1F15AE8500347D9D /* GuardpostKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GuardpostKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		229F07911F15AE8500347D9D /* GuardpostKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GuardpostKit.h; sourceTree = "<group>"; };
 		229F07921F15AE8500347D9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -110,6 +114,8 @@
 		229F07841F15AE8500347D9D = {
 			isa = PBXGroup;
 			children = (
+				22739EE51F29C97E00DFC285 /* LICENSE */,
+				22739EE61F29C97E00DFC285 /* README.md */,
 				229F07901F15AE8500347D9D /* GuardpostKit */,
 				229F079B1F15AE8500347D9D /* GuardpostKitTests */,
 				22EF2C2F1F28E1D30059BE70 /* Demo */,
@@ -345,6 +351,8 @@
 			files = (
 				22EF2C3B1F28E1D30059BE70 /* LaunchScreen.storyboard in Resources */,
 				22EF2C381F28E1D30059BE70 /* Assets.xcassets in Resources */,
+				22739EE81F29C97E00DFC285 /* README.md in Resources */,
+				22739EE71F29C97E00DFC285 /* LICENSE in Resources */,
 				22EF2C361F28E1D30059BE70 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
