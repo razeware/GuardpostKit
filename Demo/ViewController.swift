@@ -44,6 +44,14 @@ class ViewController: UIViewController {
     }
   }
   
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    
+    if let user = guardpost.currentUser {
+      displayUser(user)
+    }
+  }
+  
   private func displayError(_ error: String?) {
     DispatchQueue.main.async { [weak self] in
       if let error = error {

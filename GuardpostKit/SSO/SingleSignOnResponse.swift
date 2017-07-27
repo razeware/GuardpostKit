@@ -30,14 +30,16 @@ internal struct SingleSignOnResponse {
   
   internal init?(request: SingleSignOnRequest, responseUrl: URL) {
     let responseCmpts = URLComponents(url: responseUrl, resolvingAgainstBaseURL: false)
+    var cmpts = URLComponents()
     guard
       let sso = responseCmpts?.queryItems?.first(where: { $0.name == "sso" })?.value,
       let sig = responseCmpts?.queryItems?.first(where: { $0.name == "sig" })?.value,
-      let urlString = sso.fromBase64(),
-      let cmpts = URLComponents(string: urlString)
+      let urlString = sso.fromBase64()
     else {
       return nil
     }
+    
+    cmpts.query = urlString
     
     self.request = request
     self.signature = sig
@@ -73,7 +75,7 @@ internal struct SingleSignOnResponse {
   private func queryItemsToDictionary(_ queryItems: [URLQueryItem]) -> [String : String] {
     var dictionary = [String : String]()
     for item in queryItems {
-      dictionary[item.name] = item.value
+      dictionary[item.name] = item.value?.removingPercentEncoding
     }
     return dictionary
   }

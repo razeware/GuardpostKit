@@ -36,7 +36,7 @@ public struct SingleSignOnUser: Codable {
       let username = dictionary["username"],
       let avatarUrlString = dictionary["avatar_url"],
       let avatarUrl = URL(string: avatarUrlString),
-      let name = dictionary["name"]
+      let name = dictionary["name"]?.replacingOccurrences(of: "+", with: " ")
       else {
         return nil
     }

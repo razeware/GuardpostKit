@@ -204,11 +204,11 @@
 			children = (
 				22EF2C301F28E1D30059BE70 /* AppDelegate.swift */,
 				22EF2C321F28E1D30059BE70 /* ViewController.swift */,
+				22739EE21F293DF300DFC285 /* UserTableViewController.swift */,
 				22EF2C341F28E1D30059BE70 /* Main.storyboard */,
 				22EF2C371F28E1D30059BE70 /* Assets.xcassets */,
 				22EF2C391F28E1D30059BE70 /* LaunchScreen.storyboard */,
 				22EF2C3C1F28E1D30059BE70 /* Info.plist */,
-				22739EE21F293DF300DFC285 /* UserTableViewController.swift */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
