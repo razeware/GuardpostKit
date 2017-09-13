@@ -20,30 +20,43 @@
  * THE SOFTWARE.
  */
 
-import XCTest
-@testable import GuardpostKit
+import Foundation
 
-class GuardpostKitTests: XCTestCase {
+internal struct SingleSignOnRequest {
+  private let callbackUrl: String
+  internal let secret: String
+  internal let nonce: String
+  private let endpoint: String
   
-  override func setUp() {
-    super.setUp()
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+  internal init(endpoint: String, secret: String, callbackUrl: String) {
+    self.endpoint = endpoint
+    self.secret = secret
+    self.callbackUrl = callbackUrl
+    self.nonce = randomHexString(length: 40)
   }
   
-  override func tearDown() {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    super.tearDown()
+  internal var url: URL? {
+    var cmpts = URLComponents(string: endpoint)
+    cmpts?.queryItems = payload
+    return cmpts?.url
   }
   
-  func testExample() {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+  private var payload: [URLQueryItem]? {
+    guard let unsignedPayload = unsignedPayload else { return .none }
+    let contents = unsignedPayload.toBase64()
+    let signature = contents.hmac(algorithm: .sha256, key: secret)
+    return [
+      URLQueryItem(name: "sso", value: contents),
+      URLQueryItem(name: "sig", value: signature)
+    ]
   }
   
-  func testPerformanceExample() {
-    // This is an example of a performance test case.
-    self.measure {
-      // Put the code you want to measure the time of here.
-    }
+  private var unsignedPayload: String? {
+    var cmpts = URLComponents()
+    cmpts.queryItems = [
+      URLQueryItem(name: "callback_url", value: callbackUrl),
+      URLQueryItem(name: "nonce", value: nonce)
+    ]
+    return cmpts.query
   }
 }

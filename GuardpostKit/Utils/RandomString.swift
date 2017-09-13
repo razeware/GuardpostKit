@@ -20,30 +20,14 @@
  * THE SOFTWARE.
  */
 
-import XCTest
-@testable import GuardpostKit
+import Foundation
+import Security
 
-class GuardpostKitTests: XCTestCase {
+func randomHexString(length: Int) -> String {
+  let byteCount = length * 2
+  var randomBytes = [UInt8](repeating: 0, count: byteCount)
   
-  override func setUp() {
-    super.setUp()
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-  }
+  let _ = SecRandomCopyBytes(kSecRandomDefault, byteCount, &randomBytes)
   
-  override func tearDown() {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    super.tearDown()
-  }
-  
-  func testExample() {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
-  }
-  
-  func testPerformanceExample() {
-    // This is an example of a performance test case.
-    self.measure {
-      // Put the code you want to measure the time of here.
-    }
-  }
+  return randomBytes.map({String(format: "%02hhx", $0)}).joined(separator: "")
 }

@@ -20,30 +20,36 @@
  * THE SOFTWARE.
  */
 
-import XCTest
-@testable import GuardpostKit
+import Foundation
 
-class GuardpostKitTests: XCTestCase {
-  
-  override func setUp() {
-    super.setUp()
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-  }
-  
-  override func tearDown() {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    super.tearDown()
-  }
-  
-  func testExample() {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
-  }
-  
-  func testPerformanceExample() {
-    // This is an example of a performance test case.
-    self.measure {
-      // Put the code you want to measure the time of here.
+fileprivate let SSO_USER_KEY = "com.razeware.guardpostkit.sso_user"
+
+internal extension SingleSignOnUser {
+  @discardableResult
+  internal func persistToKeychain() -> Bool {
+    let encoder = JSONEncoder()
+    guard let encoded = try? encoder.encode(self) else {
+      return false
     }
+    
+    let keychain = KeychainSwift()
+    return keychain.set(encoded, forKey: SSO_USER_KEY, withAccess: .accessibleAfterFirstUnlock)
+  }
+  
+  internal static func restoreFromKeychain() -> SingleSignOnUser? {
+    let keychain = KeychainSwift()
+    guard let encoded = keychain.getData(SSO_USER_KEY) else {
+      return .none
+    }
+    
+    let decoder = JSONDecoder()
+    return try? decoder.decode(self, from: encoded)
+  }
+  
+  @discardableResult
+  internal static func removeUserFromKeychain() -> Bool {
+    let keychain = KeychainSwift()
+    return keychain.delete(SSO_USER_KEY)
   }
 }
+
