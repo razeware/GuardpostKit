@@ -28,7 +28,7 @@ class ViewController: UIViewController {
   
   let guardpost = Guardpost(baseUrl: "https://guardpost.rwdev.io",
                             urlScheme: "com.razeware.guardpost-demo://",
-                            ssoSecret: "Xf9wbqxxT9DVcmMEGE232NxHX5em6yh9XJu4mvGRBPYuMSKuTArg8kv9")
+                            ssoSecret: "ZnWgQARSbrynT82UFilO8TlwZIavmYeWaK94Cw3drckb8Ejh6Z4BDP5dejmADvSz")
 
   @IBOutlet weak var errorLabel: UILabel!
   
