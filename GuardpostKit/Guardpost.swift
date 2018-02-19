@@ -21,7 +21,7 @@
  */
 
 import Foundation
-import SafariServices
+import AuthenticationServices
 
 public enum Result<T> {
   case success(T)
@@ -41,7 +41,8 @@ public class Guardpost {
   private let urlScheme: String
   private let ssoSecret: String
   private var _currentUser: SingleSignOnUser?
-  private var authSession: SFAuthenticationSession?
+  private var authSession: ASWebAuthenticationSession?
+  public weak var presentationContextDelegate: ASWebAuthenticationPresentationContextProviding?
   
   public init(baseUrl: String, urlScheme: String, ssoSecret: String) {
     self.baseUrl = baseUrl
@@ -66,7 +67,8 @@ public class Guardpost {
       return asyncResponse(callback: callback, result: result)
     }
     
-    authSession = SFAuthenticationSession(url: loginUrl, callbackURLScheme: urlScheme) { (url, error) in
+    authSession = ASWebAuthenticationSession(url: loginUrl, callbackURLScheme: urlScheme, completionHandler: { (url, error) in
+      
       var result: Result<SingleSignOnUser>
       
       guard let url = url else {
@@ -94,8 +96,9 @@ public class Guardpost {
       
       result = Result.success(user)
       return self.asyncResponse(callback: callback, result: result)
-    }
+    })
     
+    authSession?.presentationContextProvider = presentationContextDelegate
     authSession?.start()
   }
   

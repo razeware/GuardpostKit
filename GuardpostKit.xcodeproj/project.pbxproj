@@ -30,7 +30,6 @@
 		229F079F1F15AE8500347D9D /* GuardpostKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 229F07911F15AE8500347D9D /* GuardpostKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		229F07A91F15B7CE00347D9D /* SingleSignOnRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F07A81F15B7CE00347D9D /* SingleSignOnRequest.swift */; };
 		229F07AB1F15B7DF00347D9D /* SingleSignOnResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F07AA1F15B7DF00347D9D /* SingleSignOnResponse.swift */; };
-		229F07AF1F15B81F00347D9D /* String+HMAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F07AE1F15B81F00347D9D /* String+HMAC.swift */; };
 		229F07B11F15B82800347D9D /* String+Base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F07B01F15B82800347D9D /* String+Base64.swift */; };
 		229F07B31F15B84100347D9D /* Data+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F07B21F15B84100347D9D /* Data+Hex.swift */; };
 		229F07B71F15CE0900347D9D /* RandomString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F07B61F15CE0900347D9D /* RandomString.swift */; };
@@ -91,7 +90,6 @@
 		229F079E1F15AE8500347D9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		229F07A81F15B7CE00347D9D /* SingleSignOnRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSignOnRequest.swift; sourceTree = "<group>"; };
 		229F07AA1F15B7DF00347D9D /* SingleSignOnResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSignOnResponse.swift; sourceTree = "<group>"; };
-		229F07AE1F15B81F00347D9D /* String+HMAC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+HMAC.swift"; sourceTree = "<group>"; };
 		229F07B01F15B82800347D9D /* String+Base64.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Base64.swift"; sourceTree = "<group>"; };
 		229F07B21F15B84100347D9D /* Data+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Hex.swift"; sourceTree = "<group>"; };
 		229F07B61F15CE0900347D9D /* RandomString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomString.swift; sourceTree = "<group>"; };
@@ -199,7 +197,6 @@
 			children = (
 				229F07B21F15B84100347D9D /* Data+Hex.swift */,
 				229F07B01F15B82800347D9D /* String+Base64.swift */,
-				229F07AE1F15B81F00347D9D /* String+HMAC.swift */,
 				229F07B61F15CE0900347D9D /* RandomString.swift */,
 			);
 			path = Utils;
@@ -407,7 +404,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				229F07B91F15D34200347D9D /* SingleSignOnUser.swift in Sources */,
-				229F07AF1F15B81F00347D9D /* String+HMAC.swift in Sources */,
 				229F07B31F15B84100347D9D /* Data+Hex.swift in Sources */,
 				22EF2C241F28AB590059BE70 /* Guardpost.swift in Sources */,
 				22EF2C291F28C6370059BE70 /* SingleSignOnUser+Keychain.swift in Sources */,
@@ -632,7 +628,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.razeware.GuardpostKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "${SRCROOT}/GuardpostKit/CommonCrypto";
+				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -655,7 +651,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.razeware.GuardpostKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "${SRCROOT}/GuardpostKit/CommonCrypto";
+				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
