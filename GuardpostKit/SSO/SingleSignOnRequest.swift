@@ -27,12 +27,14 @@ internal struct SingleSignOnRequest {
   internal let secret: String
   internal let nonce: String
   private let endpoint: String
+  private let reauthenticate: Bool
   
-  internal init(endpoint: String, secret: String, callbackUrl: String) {
+  internal init(endpoint: String, secret: String, callbackUrl: String, reauthenticate: Bool) {
     self.endpoint = endpoint
     self.secret = secret
     self.callbackUrl = callbackUrl
     self.nonce = randomHexString(length: 40)
+    self.reauthenticate = reauthenticate
   }
   
   internal var url: URL? {
@@ -45,10 +47,14 @@ internal struct SingleSignOnRequest {
     guard let unsignedPayload = unsignedPayload else { return .none }
     let contents = unsignedPayload.toBase64()
     let signature = contents.hmac(algorithm: .sha256, key: secret)
-    return [
+    var params = [
       URLQueryItem(name: "sso", value: contents),
       URLQueryItem(name: "sig", value: signature)
     ]
+    if reauthenticate {
+      params.append(URLQueryItem(name: "reauthenticate", value: "1"))
+    }
+    return params
   }
   
   private var unsignedPayload: String? {

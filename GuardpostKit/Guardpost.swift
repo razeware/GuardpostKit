@@ -56,10 +56,10 @@ public class Guardpost {
     return _currentUser
   }
   
-  public func login(callback: @escaping (Result<SingleSignOnUser>) -> ()) {
+  public func login(reauthenticate: Bool = true, callback: @escaping (Result<SingleSignOnUser>) -> ()) {
     let guardpostLogin = "\(baseUrl)/v2/sso/login"
     let returnUrl = "\(urlScheme)sessions/create"
-    let ssoRequest = SingleSignOnRequest(endpoint: guardpostLogin, secret: ssoSecret, callbackUrl: returnUrl)
+    let ssoRequest = SingleSignOnRequest(endpoint: guardpostLogin, secret: ssoSecret, callbackUrl: returnUrl, reauthenticate: reauthenticate)
     
     guard let loginUrl = ssoRequest.url else {
       let result = Result<SingleSignOnUser>.failure(LoginError.unableToCreateLoginUrl)
