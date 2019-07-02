@@ -21,6 +21,7 @@
  */
 
 import Foundation
+import CryptoKit
 
 internal struct SingleSignOnResponse {
   private let request: SingleSignOnRequest
@@ -35,8 +36,8 @@ internal struct SingleSignOnResponse {
       let sso = responseCmpts?.queryItems?.first(where: { $0.name == "sso" })?.value,
       let sig = responseCmpts?.queryItems?.first(where: { $0.name == "sig" })?.value,
       let urlString = sso.fromBase64()
-    else {
-      return nil
+      else {
+        return nil
     }
     
     cmpts.query = urlString
@@ -61,7 +62,10 @@ internal struct SingleSignOnResponse {
   }
   
   private var isSignatureValid: Bool {
-    return payload.hmac(algorithm: .sha256, key: request.secret) == signature
+    let symmetricKey = SymmetricKey(data: Data(request.secret.utf8))
+    let hmac = HMAC<SHA256>.authenticationCode(for: Data(payload.utf8), using: symmetricKey).description.replacingOccurrences(of: String.hmacToRemove, with: "")
+    
+    return hmac == signature
   }
   
   private var isNonceValid: Bool {

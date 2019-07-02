@@ -21,6 +21,7 @@
  */
 
 import Foundation
+import CryptoKit
 
 internal struct SingleSignOnRequest {
   private let callbackUrl: String
@@ -44,7 +45,9 @@ internal struct SingleSignOnRequest {
   private var payload: [URLQueryItem]? {
     guard let unsignedPayload = unsignedPayload else { return .none }
     let contents = unsignedPayload.toBase64()
-    let signature = contents.hmac(algorithm: .sha256, key: secret)
+    let symmetricKey = SymmetricKey(data: Data(secret.utf8))
+    let signature = HMAC<SHA256>.authenticationCode(for: Data(contents.utf8), using: symmetricKey).description.replacingOccurrences(of: String.hmacToRemove, with: "")
+    
     return [
       URLQueryItem(name: "sso", value: contents),
       URLQueryItem(name: "sig", value: signature)

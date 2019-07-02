@@ -22,17 +22,20 @@
 
 import UIKit
 import GuardpostKit
-
+import AuthenticationServices
+import CryptoKit
 
 class ViewController: UIViewController {
   
-  let guardpost = Guardpost(baseUrl: "https://guardpost.rwdev.io",
-                            urlScheme: "com.razeware.guardpost-demo://",
-                            ssoSecret: "ZnWgQARSbrynT82UFilO8TlwZIavmYeWaK94Cw3drckb8Ejh6Z4BDP5dejmADvSz")
-
+  let guardpost = Guardpost(baseUrl: "https://accounts.raywenderlich.com",
+                            urlScheme: "com.razeware.emitron://",
+                            ssoSecret: "<SSO_SECRET>")
+  
   @IBOutlet weak var errorLabel: UILabel!
   
   @IBAction func handleLoginTapped(_ sender: Any) {
+    guardpost.presentationContextDelegate = self
+    
     guardpost.login { (result) in
       switch result {
       case .failure(let error):
@@ -72,6 +75,10 @@ class ViewController: UIViewController {
       self.present(userVC, animated: true, completion: .none)
     }
   }
-  
 }
 
+extension ViewController: ASWebAuthenticationPresentationContextProviding {
+  func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
+    return UIApplication.shared.keyWindow ?? UIWindow()
+  }
+}
