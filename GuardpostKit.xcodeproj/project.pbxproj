@@ -22,10 +22,10 @@
 		229F07B91F15D34200347D9D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F07B81F15D34200347D9D /* User.swift */; };
 		22EF2C1E1F28865D0059BE70 /* SingleSignOnRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF2C1D1F28865D0059BE70 /* SingleSignOnRequestTests.swift */; };
 		22EF2C201F28866C0059BE70 /* SingleSignOnResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF2C1F1F28866C0059BE70 /* SingleSignOnResponseTests.swift */; };
-		22EF2C221F28867E0059BE70 /* SingleSignOnUserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF2C211F28867E0059BE70 /* SingleSignOnUserTests.swift */; };
+		22EF2C221F28867E0059BE70 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF2C211F28867E0059BE70 /* UserTests.swift */; };
 		22EF2C241F28AB590059BE70 /* Guardpost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF2C231F28AB590059BE70 /* Guardpost.swift */; };
 		22EF2C271F28C5F20059BE70 /* KeychainSwiftDistrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF2C261F28C5F20059BE70 /* KeychainSwiftDistrib.swift */; };
-		22EF2C291F28C6370059BE70 /* SingleSignOnUser+Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF2C281F28C6370059BE70 /* SingleSignOnUser+Keychain.swift */; };
+		22EF2C291F28C6370059BE70 /* User+Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF2C281F28C6370059BE70 /* User+Keychain.swift */; };
 		22EF2C311F28E1D30059BE70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF2C301F28E1D30059BE70 /* AppDelegate.swift */; };
 		22EF2C331F28E1D30059BE70 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF2C321F28E1D30059BE70 /* ViewController.swift */; };
 		22EF2C361F28E1D30059BE70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22EF2C341F28E1D30059BE70 /* Main.storyboard */; };
@@ -69,10 +69,10 @@
 		229F07B81F15D34200347D9D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		22EF2C1D1F28865D0059BE70 /* SingleSignOnRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSignOnRequestTests.swift; sourceTree = "<group>"; };
 		22EF2C1F1F28866C0059BE70 /* SingleSignOnResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSignOnResponseTests.swift; sourceTree = "<group>"; };
-		22EF2C211F28867E0059BE70 /* SingleSignOnUserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSignOnUserTests.swift; sourceTree = "<group>"; };
+		22EF2C211F28867E0059BE70 /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		22EF2C231F28AB590059BE70 /* Guardpost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guardpost.swift; sourceTree = "<group>"; };
 		22EF2C261F28C5F20059BE70 /* KeychainSwiftDistrib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainSwiftDistrib.swift; sourceTree = "<group>"; };
-		22EF2C281F28C6370059BE70 /* SingleSignOnUser+Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SingleSignOnUser+Keychain.swift"; sourceTree = "<group>"; };
+		22EF2C281F28C6370059BE70 /* User+Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Keychain.swift"; sourceTree = "<group>"; };
 		22EF2C2E1F28E1D30059BE70 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22EF2C301F28E1D30059BE70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22EF2C321F28E1D30059BE70 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -161,7 +161,7 @@
 				229F07A81F15B7CE00347D9D /* SingleSignOnRequest.swift */,
 				229F07AA1F15B7DF00347D9D /* SingleSignOnResponse.swift */,
 				229F07B81F15D34200347D9D /* User.swift */,
-				22EF2C281F28C6370059BE70 /* SingleSignOnUser+Keychain.swift */,
+				22EF2C281F28C6370059BE70 /* User+Keychain.swift */,
 			);
 			path = SSO;
 			sourceTree = "<group>";
@@ -182,7 +182,7 @@
 			children = (
 				22EF2C1D1F28865D0059BE70 /* SingleSignOnRequestTests.swift */,
 				22EF2C1F1F28866C0059BE70 /* SingleSignOnResponseTests.swift */,
-				22EF2C211F28867E0059BE70 /* SingleSignOnUserTests.swift */,
+				22EF2C211F28867E0059BE70 /* UserTests.swift */,
 			);
 			path = SSO;
 			sourceTree = "<group>";
@@ -358,7 +358,7 @@
 				229F07B91F15D34200347D9D /* User.swift in Sources */,
 				229F07B31F15B84100347D9D /* Data+Hex.swift in Sources */,
 				22EF2C241F28AB590059BE70 /* Guardpost.swift in Sources */,
-				22EF2C291F28C6370059BE70 /* SingleSignOnUser+Keychain.swift in Sources */,
+				22EF2C291F28C6370059BE70 /* User+Keychain.swift in Sources */,
 				229F07B11F15B82800347D9D /* String+Base64.swift in Sources */,
 				B6DF2FCD22CA88720081A3A3 /* Constants.swift in Sources */,
 				22EF2C271F28C5F20059BE70 /* KeychainSwiftDistrib.swift in Sources */,
@@ -372,7 +372,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22EF2C221F28867E0059BE70 /* SingleSignOnUserTests.swift in Sources */,
+				22EF2C221F28867E0059BE70 /* UserTests.swift in Sources */,
 				229F079D1F15AE8500347D9D /* GuardpostKitTests.swift in Sources */,
 				22EF2C1E1F28865D0059BE70 /* SingleSignOnRequestTests.swift in Sources */,
 				22EF2C201F28866C0059BE70 /* SingleSignOnResponseTests.swift in Sources */,
