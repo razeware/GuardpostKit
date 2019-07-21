@@ -24,7 +24,7 @@ import UIKit
 import GuardpostKit
 
 class UserTableViewController: UITableViewController {
-  var user: SingleSignOnUser? {
+  var user: User? {
     didSet {
       updateUI()
     }
@@ -55,7 +55,7 @@ class UserTableViewController: UITableViewController {
     
     let downloadTask = URLSession.shared.downloadTask(with: user.avatarUrl) { (location, _, _) in
       guard let location = location,
-        let image = try? UIImage(data: Data(contentsOf: location)) else { return }
+        let image = ((try? UIImage(data: Data(contentsOf: location))) as UIImage??) else { return }
       DispatchQueue.main.async {
         self.avatarImageView?.image = image
       }

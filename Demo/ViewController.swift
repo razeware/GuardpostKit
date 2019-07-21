@@ -66,7 +66,7 @@ class ViewController: UIViewController {
     }
   }
   
-  private func displayUser(_ user: SingleSignOnUser) {
+  private func displayUser(_ user: User) {
     let storyboard = UIStoryboard(name: "Main", bundle: .none)
     if let userVC = storyboard.instantiateViewController(withIdentifier: "userVC") as? UserTableViewController {
       userVC.user = user

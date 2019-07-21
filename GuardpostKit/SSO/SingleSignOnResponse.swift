@@ -30,35 +30,35 @@ internal struct SingleSignOnResponse {
   private let decodedPayload: [URLQueryItem]?
   
   internal init?(request: SingleSignOnRequest, responseUrl: URL) {
-    let responseCmpts = URLComponents(url: responseUrl, resolvingAgainstBaseURL: false)
-    var cmpts = URLComponents()
+    let responseComponents = URLComponents(url: responseUrl, resolvingAgainstBaseURL: false)
+    var components = URLComponents()
     guard
-      let sso = responseCmpts?.queryItems?.first(where: { $0.name == "sso" })?.value,
-      let sig = responseCmpts?.queryItems?.first(where: { $0.name == "sig" })?.value,
+      let sso = responseComponents?.queryItems?.first(where: { $0.name == "sso" })?.value,
+      let sig = responseComponents?.queryItems?.first(where: { $0.name == "sig" })?.value,
       let urlString = sso.fromBase64()
       else {
         return nil
     }
     
-    cmpts.query = urlString
+    components.query = urlString
     
     self.request = request
     self.signature = sig
     self.payload = sso
-    self.decodedPayload = cmpts.queryItems
+    self.decodedPayload = components.queryItems
   }
   
   internal var isValid: Bool {
     return isSignatureValid && isNonceValid
   }
   
-  internal var user: SingleSignOnUser? {
+  internal var user: User? {
     if !isValid {
       return .none
     }
     guard let decodedPayload = decodedPayload else { return .none }
     let dictionary = queryItemsToDictionary(decodedPayload)
-    return SingleSignOnUser(dictionary: dictionary)
+    return User(dictionary: dictionary)
   }
   
   private var isSignatureValid: Bool {
@@ -76,10 +76,11 @@ internal struct SingleSignOnResponse {
     return decodedPayload?.first(where: { $0.name == name })?.value
   }
   
-  private func queryItemsToDictionary(_ queryItems: [URLQueryItem]) -> [String : String] {
-    var dictionary = [String : String]()
-    for item in queryItems {
-      dictionary[item.name] = item.value?.removingPercentEncoding
+  private func queryItemsToDictionary(_ queryItems: [URLQueryItem]) -> [String: String] {
+    let dictionary = queryItems.reduce([:]) { (result, item) -> [String: String] in
+      var current = result
+      current[item.name] = item.value?.removingPercentEncoding
+      return current
     }
     return dictionary
   }

@@ -23,11 +23,6 @@
 import Foundation
 import AuthenticationServices
 
-public enum Result<T> {
-  case success(T)
-  case failure(Error)
-}
-
 public enum LoginError: Error {
   case unableToCreateLoginUrl
   case errorResponseFromGuardpost(Error?)
@@ -40,7 +35,7 @@ public class Guardpost {
   private let baseUrl: String
   private let urlScheme: String
   private let ssoSecret: String
-  private var _currentUser: SingleSignOnUser?
+  private var _currentUser: User?
   private var authSession: ASWebAuthenticationSession?
   public weak var presentationContextDelegate: ASWebAuthenticationPresentationContextProviding?
   
@@ -50,26 +45,26 @@ public class Guardpost {
     self.ssoSecret = ssoSecret
   }
   
-  public var currentUser: SingleSignOnUser? {
+  public var currentUser: User? {
     if _currentUser == .none {
-      _currentUser = SingleSignOnUser.restoreFromKeychain()
+      _currentUser = User.restoreFromKeychain()
     }
     return _currentUser
   }
   
-  public func login(callback: @escaping (Result<SingleSignOnUser>) -> ()) {
+  public func login(callback: @escaping (Result<User, LoginError>) -> ()) {
     let guardpostLogin = "\(baseUrl)/v2/sso/login"
     let returnUrl = "\(urlScheme)sessions/create"
     let ssoRequest = SingleSignOnRequest(endpoint: guardpostLogin, secret: ssoSecret, callbackUrl: returnUrl)
     
     guard let loginUrl = ssoRequest.url else {
-      let result = Result<SingleSignOnUser>.failure(LoginError.unableToCreateLoginUrl)
+      let result: Result<User, LoginError> = .failure(.unableToCreateLoginUrl)
       return asyncResponse(callback: callback, result: result)
     }
     
     authSession = ASWebAuthenticationSession(url: loginUrl, callbackURLScheme: urlScheme, completionHandler: { (url, error) in
       
-      var result: Result<SingleSignOnUser>
+      var result: Result<User, LoginError>
       
       guard let url = url else {
         result = .failure(LoginError.errorResponseFromGuardpost(error))
@@ -107,11 +102,11 @@ public class Guardpost {
   }
   
   public func logout() {
-    SingleSignOnUser.removeUserFromKeychain()
+    User.removeUserFromKeychain()
     _currentUser = .none
   }
   
-  private func asyncResponse(callback: @escaping (Result<SingleSignOnUser>) -> (), result: Result<SingleSignOnUser>) {
+  private func asyncResponse(callback: @escaping (Result<User, LoginError>) -> (), result: (Result<User, LoginError>)) {
     DispatchQueue.global(qos: .userInitiated).async {
       callback(result)
     }
