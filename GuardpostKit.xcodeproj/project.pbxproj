@@ -19,13 +19,13 @@
 		229F07B11F15B82800347D9D /* String+Base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F07B01F15B82800347D9D /* String+Base64.swift */; };
 		229F07B31F15B84100347D9D /* Data+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F07B21F15B84100347D9D /* Data+Hex.swift */; };
 		229F07B71F15CE0900347D9D /* RandomString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F07B61F15CE0900347D9D /* RandomString.swift */; };
-		229F07B91F15D34200347D9D /* SingleSignOnUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F07B81F15D34200347D9D /* SingleSignOnUser.swift */; };
+		229F07B91F15D34200347D9D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F07B81F15D34200347D9D /* User.swift */; };
 		22EF2C1E1F28865D0059BE70 /* SingleSignOnRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF2C1D1F28865D0059BE70 /* SingleSignOnRequestTests.swift */; };
 		22EF2C201F28866C0059BE70 /* SingleSignOnResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF2C1F1F28866C0059BE70 /* SingleSignOnResponseTests.swift */; };
-		22EF2C221F28867E0059BE70 /* SingleSignOnUserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF2C211F28867E0059BE70 /* SingleSignOnUserTests.swift */; };
+		22EF2C221F28867E0059BE70 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF2C211F28867E0059BE70 /* UserTests.swift */; };
 		22EF2C241F28AB590059BE70 /* Guardpost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF2C231F28AB590059BE70 /* Guardpost.swift */; };
 		22EF2C271F28C5F20059BE70 /* KeychainSwiftDistrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF2C261F28C5F20059BE70 /* KeychainSwiftDistrib.swift */; };
-		22EF2C291F28C6370059BE70 /* SingleSignOnUser+Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF2C281F28C6370059BE70 /* SingleSignOnUser+Keychain.swift */; };
+		22EF2C291F28C6370059BE70 /* User+Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF2C281F28C6370059BE70 /* User+Keychain.swift */; };
 		22EF2C311F28E1D30059BE70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF2C301F28E1D30059BE70 /* AppDelegate.swift */; };
 		22EF2C331F28E1D30059BE70 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF2C321F28E1D30059BE70 /* ViewController.swift */; };
 		22EF2C361F28E1D30059BE70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22EF2C341F28E1D30059BE70 /* Main.storyboard */; };
@@ -66,13 +66,13 @@
 		229F07B01F15B82800347D9D /* String+Base64.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Base64.swift"; sourceTree = "<group>"; };
 		229F07B21F15B84100347D9D /* Data+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Hex.swift"; sourceTree = "<group>"; };
 		229F07B61F15CE0900347D9D /* RandomString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomString.swift; sourceTree = "<group>"; };
-		229F07B81F15D34200347D9D /* SingleSignOnUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSignOnUser.swift; sourceTree = "<group>"; };
+		229F07B81F15D34200347D9D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		22EF2C1D1F28865D0059BE70 /* SingleSignOnRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSignOnRequestTests.swift; sourceTree = "<group>"; };
 		22EF2C1F1F28866C0059BE70 /* SingleSignOnResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSignOnResponseTests.swift; sourceTree = "<group>"; };
-		22EF2C211F28867E0059BE70 /* SingleSignOnUserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSignOnUserTests.swift; sourceTree = "<group>"; };
+		22EF2C211F28867E0059BE70 /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		22EF2C231F28AB590059BE70 /* Guardpost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guardpost.swift; sourceTree = "<group>"; };
 		22EF2C261F28C5F20059BE70 /* KeychainSwiftDistrib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainSwiftDistrib.swift; sourceTree = "<group>"; };
-		22EF2C281F28C6370059BE70 /* SingleSignOnUser+Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SingleSignOnUser+Keychain.swift"; sourceTree = "<group>"; };
+		22EF2C281F28C6370059BE70 /* User+Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Keychain.swift"; sourceTree = "<group>"; };
 		22EF2C2E1F28E1D30059BE70 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22EF2C301F28E1D30059BE70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22EF2C321F28E1D30059BE70 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -160,8 +160,8 @@
 			children = (
 				229F07A81F15B7CE00347D9D /* SingleSignOnRequest.swift */,
 				229F07AA1F15B7DF00347D9D /* SingleSignOnResponse.swift */,
-				229F07B81F15D34200347D9D /* SingleSignOnUser.swift */,
-				22EF2C281F28C6370059BE70 /* SingleSignOnUser+Keychain.swift */,
+				229F07B81F15D34200347D9D /* User.swift */,
+				22EF2C281F28C6370059BE70 /* User+Keychain.swift */,
 			);
 			path = SSO;
 			sourceTree = "<group>";
@@ -182,7 +182,7 @@
 			children = (
 				22EF2C1D1F28865D0059BE70 /* SingleSignOnRequestTests.swift */,
 				22EF2C1F1F28866C0059BE70 /* SingleSignOnResponseTests.swift */,
-				22EF2C211F28867E0059BE70 /* SingleSignOnUserTests.swift */,
+				22EF2C211F28867E0059BE70 /* UserTests.swift */,
 			);
 			path = SSO;
 			sourceTree = "<group>";
@@ -284,12 +284,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = Razeware;
 				TargetAttributes = {
 					229F078D1F15AE8500347D9D = {
 						CreatedOnToolsVersion = 9.0;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1100;
 					};
 					229F07961F15AE8500347D9D = {
 						CreatedOnToolsVersion = 9.0;
@@ -297,6 +297,7 @@
 					};
 					22EF2C2D1F28E1D30059BE70 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 1100;
 					};
 				};
 			};
@@ -354,10 +355,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				229F07B91F15D34200347D9D /* SingleSignOnUser.swift in Sources */,
+				229F07B91F15D34200347D9D /* User.swift in Sources */,
 				229F07B31F15B84100347D9D /* Data+Hex.swift in Sources */,
 				22EF2C241F28AB590059BE70 /* Guardpost.swift in Sources */,
-				22EF2C291F28C6370059BE70 /* SingleSignOnUser+Keychain.swift in Sources */,
+				22EF2C291F28C6370059BE70 /* User+Keychain.swift in Sources */,
 				229F07B11F15B82800347D9D /* String+Base64.swift in Sources */,
 				B6DF2FCD22CA88720081A3A3 /* Constants.swift in Sources */,
 				22EF2C271F28C5F20059BE70 /* KeychainSwiftDistrib.swift in Sources */,
@@ -371,7 +372,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22EF2C221F28867E0059BE70 /* SingleSignOnUserTests.swift in Sources */,
+				22EF2C221F28867E0059BE70 /* UserTests.swift in Sources */,
 				229F079D1F15AE8500347D9D /* GuardpostKitTests.swift in Sources */,
 				22EF2C1E1F28865D0059BE70 /* SingleSignOnRequestTests.swift in Sources */,
 				22EF2C201F28866C0059BE70 /* SingleSignOnResponseTests.swift in Sources */,
@@ -437,6 +438,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -444,6 +446,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -497,6 +500,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -504,6 +508,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -555,7 +560,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -578,7 +583,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_INCLUDE_PATHS = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -624,7 +629,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.razeware.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INCLUDE_PATHS = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -640,7 +645,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.razeware.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INCLUDE_PATHS = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

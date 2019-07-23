@@ -22,7 +22,7 @@
 
 import Foundation
 
-public struct SingleSignOnUser: Codable {
+public struct User: Codable {
   public let externalId: String
   public let email: String
   public let username: String
@@ -52,13 +52,4 @@ public struct SingleSignOnUser: Codable {
   }
 }
 
-extension SingleSignOnUser: Equatable {
-  public static func ==(lhs: SingleSignOnUser, rhs: SingleSignOnUser) -> Bool {
-    return lhs.externalId == rhs.externalId &&
-      lhs.email == rhs.email &&
-      lhs.username == rhs.username &&
-      lhs.avatarUrl == rhs.avatarUrl &&
-      lhs.name == rhs.name &&
-      lhs.token == rhs.token
-  }
-}
+extension User: Equatable { }

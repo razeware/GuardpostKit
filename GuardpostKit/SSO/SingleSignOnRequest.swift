@@ -37,9 +37,9 @@ internal struct SingleSignOnRequest {
   }
   
   internal var url: URL? {
-    var cmpts = URLComponents(string: endpoint)
-    cmpts?.queryItems = payload
-    return cmpts?.url
+    var components = URLComponents(string: endpoint)
+    components?.queryItems = payload
+    return components?.url
   }
   
   private var payload: [URLQueryItem]? {
@@ -55,11 +55,11 @@ internal struct SingleSignOnRequest {
   }
   
   private var unsignedPayload: String? {
-    var cmpts = URLComponents()
-    cmpts.queryItems = [
+    var components = URLComponents()
+    components.queryItems = [
       URLQueryItem(name: "callback_url", value: callbackUrl),
       URLQueryItem(name: "nonce", value: nonce)
     ]
-    return cmpts.query
+    return components.query
   }
 }

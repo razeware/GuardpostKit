@@ -24,9 +24,9 @@ import Foundation
 
 fileprivate let SSO_USER_KEY = "com.razeware.guardpostkit.sso_user"
 
-internal extension SingleSignOnUser {
+internal extension User {
   @discardableResult
-  internal func persistToKeychain() -> Bool {
+  func persistToKeychain() -> Bool {
     let encoder = JSONEncoder()
     guard let encoded = try? encoder.encode(self) else {
       return false
@@ -36,7 +36,7 @@ internal extension SingleSignOnUser {
     return keychain.set(encoded, forKey: SSO_USER_KEY, withAccess: .accessibleAfterFirstUnlock)
   }
   
-  internal static func restoreFromKeychain() -> SingleSignOnUser? {
+  static func restoreFromKeychain() -> User? {
     let keychain = KeychainSwift()
     guard let encoded = keychain.getData(SSO_USER_KEY) else {
       return .none
@@ -47,7 +47,7 @@ internal extension SingleSignOnUser {
   }
   
   @discardableResult
-  internal static func removeUserFromKeychain() -> Bool {
+  static func removeUserFromKeychain() -> Bool {
     let keychain = KeychainSwift()
     return keychain.delete(SSO_USER_KEY)
   }

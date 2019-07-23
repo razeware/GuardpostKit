@@ -23,11 +23,11 @@
 import XCTest
 @testable import GuardpostKit
 
-class SingleSignOnUserTests: XCTestCase {
+class UserTests: XCTestCase {
   
   override func tearDown() {
     // Ensure we don't have any leftover users in the keychain
-    SingleSignOnUser.removeUserFromKeychain()
+    User.removeUserFromKeychain()
   }
   
   let userDictionary = [
@@ -40,7 +40,7 @@ class SingleSignOnUserTests: XCTestCase {
   ]
   
   func testUserCorrectlyPopulatesWithDictionary() {
-    guard let user = SingleSignOnUser(dictionary: userDictionary) else {
+    guard let user = User(dictionary: userDictionary) else {
       XCTFail("User should be correctly populated")
       return
     }
@@ -56,7 +56,7 @@ class SingleSignOnUserTests: XCTestCase {
   func testUserDictionaryHasRequiredFields() {
     var invalidDictionary = userDictionary
     invalidDictionary.removeValue(forKey: "external_id")
-    let user = SingleSignOnUser(dictionary: invalidDictionary)
+    let user = User(dictionary: invalidDictionary)
     
     XCTAssertNil(user)
   }
@@ -64,7 +64,7 @@ class SingleSignOnUserTests: XCTestCase {
   func testAdditionalEntriesInTheDictionaryAreIgnored() {
     var overSpecifiedDictionary = userDictionary
     overSpecifiedDictionary["extra_field"] = "some-guff"
-    let user = SingleSignOnUser(dictionary: overSpecifiedDictionary)
+    let user = User(dictionary: overSpecifiedDictionary)
     
     XCTAssertNotNil(user)
   }
@@ -72,19 +72,19 @@ class SingleSignOnUserTests: XCTestCase {
   func testAvatarURLMustBeAURL() {
     var invalidDictionary = userDictionary
     invalidDictionary["avatar_url"] = "not a url"
-    let user = SingleSignOnUser(dictionary: invalidDictionary)
+    let user = User(dictionary: invalidDictionary)
     
     XCTAssertNil(user)
   }
   
   func testPersistenceToKeychain() {
-    guard let user = SingleSignOnUser(dictionary: userDictionary) else {
+    guard let user = User(dictionary: userDictionary) else {
       return XCTFail()
     }
     
     XCTAssert(user.persistToKeychain())
     
-    guard let restoredUser = SingleSignOnUser.restoreFromKeychain() else {
+    guard let restoredUser = User.restoreFromKeychain() else {
       return XCTFail("Unable to restore user from Keychain")
     }
     
@@ -92,17 +92,17 @@ class SingleSignOnUserTests: XCTestCase {
   }
   
   func testRemovalOfUserFromKeychain() {
-    XCTAssertNil(SingleSignOnUser.restoreFromKeychain())
+    XCTAssertNil(User.restoreFromKeychain())
     
-    guard let user = SingleSignOnUser(dictionary: userDictionary) else {
+    guard let user = User(dictionary: userDictionary) else {
       return XCTFail()
     }
     
     XCTAssert(user.persistToKeychain())
-    XCTAssertNotNil(SingleSignOnUser.restoreFromKeychain())
+    XCTAssertNotNil(User.restoreFromKeychain())
     
-    XCTAssert(SingleSignOnUser.removeUserFromKeychain())
+    XCTAssert(User.removeUserFromKeychain())
     
-    XCTAssertNil(SingleSignOnUser.restoreFromKeychain())
+    XCTAssertNil(User.restoreFromKeychain())
   }
 }
