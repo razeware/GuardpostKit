@@ -67,12 +67,14 @@ class ViewController: UIViewController {
   }
   
   private func displayUser(_ user: User) {
-    let storyboard = UIStoryboard(name: "Main", bundle: .none)
-    if let userVC = storyboard.instantiateViewController(withIdentifier: "userVC") as? UserTableViewController {
-      userVC.user = user
-      userVC.guardpost = guardpost
-      
-      self.present(userVC, animated: true, completion: .none)
+    DispatchQueue.main.async { [unowned self] in
+      let storyboard = UIStoryboard(name: "Main", bundle: .none)
+      if let userVC = storyboard.instantiateViewController(withIdentifier: "userVC") as? UserTableViewController {
+        userVC.user = user
+        userVC.guardpost = self.guardpost
+        
+        self.present(userVC, animated: true, completion: .none)
+      }
     }
   }
 }
