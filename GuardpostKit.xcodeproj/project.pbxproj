@@ -20,6 +20,7 @@
 		229F07B31F15B84100347D9D /* Data+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F07B21F15B84100347D9D /* Data+Hex.swift */; };
 		229F07B71F15CE0900347D9D /* RandomString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F07B61F15CE0900347D9D /* RandomString.swift */; };
 		229F07B91F15D34200347D9D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F07B81F15D34200347D9D /* User.swift */; };
+		22D176B82345090C0038333D /* SingleSignOffRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D176B72345090C0038333D /* SingleSignOffRequest.swift */; };
 		22EF2C1E1F28865D0059BE70 /* SingleSignOnRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF2C1D1F28865D0059BE70 /* SingleSignOnRequestTests.swift */; };
 		22EF2C201F28866C0059BE70 /* SingleSignOnResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF2C1F1F28866C0059BE70 /* SingleSignOnResponseTests.swift */; };
 		22EF2C221F28867E0059BE70 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF2C211F28867E0059BE70 /* UserTests.swift */; };
@@ -67,6 +68,7 @@
 		229F07B21F15B84100347D9D /* Data+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Hex.swift"; sourceTree = "<group>"; };
 		229F07B61F15CE0900347D9D /* RandomString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomString.swift; sourceTree = "<group>"; };
 		229F07B81F15D34200347D9D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		22D176B72345090C0038333D /* SingleSignOffRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSignOffRequest.swift; sourceTree = "<group>"; };
 		22EF2C1D1F28865D0059BE70 /* SingleSignOnRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSignOnRequestTests.swift; sourceTree = "<group>"; };
 		22EF2C1F1F28866C0059BE70 /* SingleSignOnResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSignOnResponseTests.swift; sourceTree = "<group>"; };
 		22EF2C211F28867E0059BE70 /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 			children = (
 				229F07A81F15B7CE00347D9D /* SingleSignOnRequest.swift */,
 				229F07AA1F15B7DF00347D9D /* SingleSignOnResponse.swift */,
+				22D176B72345090C0038333D /* SingleSignOffRequest.swift */,
 				229F07B81F15D34200347D9D /* User.swift */,
 				22EF2C281F28C6370059BE70 /* User+Keychain.swift */,
 			);
@@ -365,6 +368,7 @@
 				229F07B71F15CE0900347D9D /* RandomString.swift in Sources */,
 				229F07AB1F15B7DF00347D9D /* SingleSignOnResponse.swift in Sources */,
 				229F07A91F15B7CE00347D9D /* SingleSignOnRequest.swift in Sources */,
+				22D176B82345090C0038333D /* SingleSignOffRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
